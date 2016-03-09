@@ -70,6 +70,14 @@ gen_tunable(httpd_can_network_connect_ldap, false)
 
 ## <desc>
 ##	<p>
+##	Determine whether httpd can connect to
+##	redis over the network.
+##	</p>
+## </desc>
+gen_tunable(httpd_can_network_connect_redis, false)
+
+## <desc>
+##	<p>
 ##	Determine whether httpd can connect
 ##	to memcache server over the network.
 ##	</p>
@@ -556,6 +564,10 @@ tunable_policy(`httpd_can_network_connect_db',`
 	corenet_sendrecv_oracledb_client_packets(httpd_t)
 	corenet_tcp_connect_oracledb_port(httpd_t)
 	corenet_tcp_sendrecv_oracledb_port(httpd_t)
+')
+
+tunable_policy(`httpd_can_network_connect_redis', `
+	corenet_tcp_connect_redis_port(httpd_t)
 ')
 
 tunable_policy(`httpd_can_network_relay',`
